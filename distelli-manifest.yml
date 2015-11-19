@@ -21,7 +21,7 @@ zchase/meteor:
 
   PostInstall:
     - echo "Begin PostInstall"
-    - meteor build ./build --directory
+    - /usr/local/bin/meteor build ./build --directory
     - cd build/bundle/programs/server/
     - npm install
 
