@@ -14,9 +14,6 @@ zchase/meteor:
     - sudo apt-get -y update
     - sudo apt-get install -y software-properties-common
     - sudo apt-get install -y python-software-properties python g++ make
-    - curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-    - sudo apt-get -y update
-    - sudo apt-get install -y nodejs
     - 'if [ -a /usr/local/bin/meteor ]; then'
     -     echo "Meteor is already installed"
     - else
@@ -27,7 +24,7 @@ zchase/meteor:
     - echo "Begin PostInstall"
     - /usr/local/bin/meteor build ./build --directory
     - cd build/bundle/programs/server/
-    - npm install
+    #- npm install
 
   Exec:
     - /usr/bin/node build/bundle/main.js
