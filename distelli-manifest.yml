@@ -24,7 +24,7 @@ zchase/meteor:
     - echo "Begin PostInstall"
     - /usr/local/bin/meteor build ./build --directory
     - cd build/bundle/programs/server/
-    #- npm install
+    - npm install
 
   Exec:
     - /usr/bin/node build/bundle/main.js
