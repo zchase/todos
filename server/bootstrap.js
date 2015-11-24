@@ -2,10 +2,10 @@
 Meteor.startup(function () {
   if (Lists.find().count() === 0) {
     var data = [
-      {name: "Meteor Principles",
-       items: ["Data on the Wire",
-         "One Language",
-         "Database Everywhere",
+      {name: "GARBAGE EVERYTHING IS GARBAGE",
+       items: ["MOM",
+         "HELP",
+         "SUCKS",
          "Latency Compensation",
          "Full Stack Reactivity",
          "Embrace the Ecosystem",

@@ -27,7 +27,7 @@ zchase/meteor:
     - npm install
 
   Exec:
-    - export PORT=80
+    - export PORT=3000
     - export MONGO_URL=mongodb://localhost:27017/todos
     - export ROOT_URL=https://107.170.49.138
     - /usr/bin/node build/bundle/main.js
