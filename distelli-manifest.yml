@@ -12,7 +12,7 @@ zchase/meteor:
   PreInstall:
     - echo "Begin PreInstall"
     - sudo apt-get -y update
-    - apt-get install mongodb-server
+    - sudo apt-get install mongodb-server
     - sudo apt-get -y install build-essential libssl-dev git curl
     - cd /tmp
     - wget http://nodejs.org/dist/v0.10.40/node-v0.10.40-linux-x64.tar.gz
