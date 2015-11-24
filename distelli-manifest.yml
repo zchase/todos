@@ -7,7 +7,6 @@ zchase/meteor:
   Build:
     - echo "Begin Build"
     - npm install
-    #- npm test
 
   PreInstall:
     - echo "Begin PreInstall"
