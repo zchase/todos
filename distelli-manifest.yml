@@ -30,13 +30,13 @@ zchase/meteor:
     - else
     -     echo "Default NGINX already removed"
     - fi
+
+  PostInstall:
+    - echo "Begin PostInstall"
     - sudo mv -f todos /etc/nginx/sites-available/todos
     - sudo mv -f todos.conf /etc/init/todos.conf
     - sudo ln -sf /etc/nginx/sites-available/todos /etc/nginx/sites-enabled/todos
     - sudo service nginx restart -y
-
-  PostInstall:
-    - echo "Begin PostInstall"
     - /usr/local/bin/meteor build ./build --directory
     - cd build/bundle/programs/server/
     - npm install
