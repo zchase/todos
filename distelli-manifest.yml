@@ -12,6 +12,7 @@ zchase/meteor:
   PreInstall:
     - echo "Begin PreInstall"
     - sudo apt-get -y update
+    - sudo apt-get install mongodb-server -y
     - sudo apt-get install -y software-properties-common
     - sudo apt-get install -y python-software-properties python g++ make
     - 'if [ -a /usr/local/bin/meteor ]; then'
@@ -19,6 +20,20 @@ zchase/meteor:
     - else
     -     sudo curl https://install.meteor.com | /bin/sh
     - fi
+    - 'if [ -a /etc/nginx ]; then'
+    -     echo "NGINX is already installed"
+    - else
+    -     sudo apt-get install nginx -y
+    - fi
+    - 'if [ -a /etc/nginx/sites-enabled/default ]; then'
+    -     sudo rm /etc/nginx/sites-enabled/default
+    - else
+    -     echo "Default NGINX already removed"
+    - fi
+    - sudo mv -f todos /etc/nginx/sites-available/todos
+    - sudo mv -f todos.conf /etc/init/todos.conf
+    - sudo ln -sf /etc/nginx/sites-available/todos /etc/nginx/sites-enabled/todos
+    - sudo service nginx restart -y
 
   PostInstall:
     - echo "Begin PostInstall"
