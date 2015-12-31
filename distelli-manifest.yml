@@ -3,9 +3,25 @@ zchase/meteor:
   #Learn about the distelli-manifest.yml at https://www.distelli.com/docs/reference/distelli-manifest
   PkgInclude:
     - '*'
+  PreBuild:
+    - echo "Begin PreInstall"
+    - sudo apt-get -y update
+    - sudo apt-get install -y mongodb-server
+    - sudo apt-get -y install build-essential libssl-dev git curl
+    - cd /tmp
+    - wget http://nodejs.org/dist/v0.10.40/node-v0.10.40-linux-x64.tar.gz
+    - tar xvzf node-v0.10.40-linux-x64.tar.gz
+    - sudo rm -rf /opt/nodejs
+    - sudo mv node-v0.10.40-linux-x64 /opt/nodejs
+    - sudo ln -sf /opt/nodejs/bin/node /usr/bin/node
+    - sudo ln -sf /opt/nodejs/bin/npm /usr/bin/npm
+    - sudo apt-get install -y software-properties-common
+    - sudo apt-get install -y python-software-properties python g++ make
+    - sudo curl https://install.meteor.com | /bin/sh
 
   Build:
     - echo "Begin Build"
+    - /usr/local/bin/meteor build ./build --directory
     - npm install
 
   PreInstall:
