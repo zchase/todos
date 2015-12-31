@@ -6,6 +6,7 @@ zchase/meteor:
 
   Build:
     - echo "Begin Build"
+    - npm install
 
   PreInstall:
     - echo "Begin PreInstall"
@@ -31,6 +32,7 @@ zchase/meteor:
     - echo "Begin PostInstall"
     - /usr/local/bin/meteor build ./build --directory
     - cd build/bundle/programs/server/
+    - npm install
 
   Exec:
     - export PORT=3000
